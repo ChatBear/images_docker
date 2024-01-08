@@ -1,0 +1,34 @@
+postgresql:
+  image:
+    tag: "14"
+    pullPolicy: IfNotPresent
+  global:
+    postgresql:
+      service: 
+        ports:
+          postgresql: 5432
+  auth:
+    postgresPassword: ""
+    username: ""
+    password: ""
+    database: "defaultdb"
+  extensions:
+    postgis: false
+  primary:
+    resources:
+      limits: {}
+      requests:
+        memory: 256Mi
+        cpu: 250m
+    initdb:
+      scriptsConfigMap: '{{ include "library-chart.fullname" . }}'
+  
+discoverable:
+  allow: true
+
+security:
+  networkPolicy: 
+    enabled: true
+
+userPreferences:
+  language: "en"

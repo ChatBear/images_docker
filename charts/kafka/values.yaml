@@ -1,0 +1,9 @@
+kafka:
+  fullnameOverride: kafka
+  replicaCount: 3
+  discoverable:
+    allow: true
+  zookeeper:
+    fullnameOverride: kafka-zookeeper
+fullnameOverride: kafka
+
